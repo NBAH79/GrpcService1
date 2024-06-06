@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  grpcservice1:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=5229
+      - ASPNETCORE_HTTPS_PORTS=7138
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=12345678
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    ports:
+      - 55001:7138
+      - 55000:5229
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+      - ./https:/https/:rw
+
+  grpcservice2:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=5229
+      - ASPNETCORE_HTTPS_PORTS=7138
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=12345678
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    ports:
+      - 55003:7138
+      - 55002:5229
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+      - ./https:/https/:rw
+

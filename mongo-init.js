@@ -1,0 +1,16 @@
+rs.initiate({
+    "_id": "dbrs",
+    "version": 1,
+    "members": [
+        {
+            "_id": 1,
+            "host": "mongo1:27017",
+            "priority": 3
+        },
+        {
+            "_id": 2,
+            "host": "mongo2:27017",
+            "priority": 2
+        }
+    ]
+}, { force: true });

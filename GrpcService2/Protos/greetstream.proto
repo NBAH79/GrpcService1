@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcService2";
+
+package GreetStream;
+
+// The greeting service definition.
+service GreeterStream {
+  // Sends a greeting
+  rpc SayHello (HelloStreamRequest) returns (HelloStreamReply);
+  rpc ListenHello (ListenStreamRequest) returns (ListenStreamReply);
+  rpc SayHelloStream (HelloStreamRequestFile) returns (stream HelloStreamResponseFile);
+}
+
+// The request message containing the user's name.
+message HelloStreamRequest {
+  string name = 1;
+}
+
+message ListenStreamRequest {
+  string filter = 1;
+}
+
+// The response message containing the greetings.
+message HelloStreamReply {
+  string message = 1;
+}
+
+// The response message containing the greetings.
+message ListenStreamReply {
+  string message = 1;
+}
+
+
+// The request message containing the file's name.
+message HelloStreamRequestFile {
+  string file = 1;
+}
+
+// The response message containing the file.
+message HelloStreamResponseFile {
+  string content = 1;
+}

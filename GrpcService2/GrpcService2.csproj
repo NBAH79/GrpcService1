@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\GrpcService1</DockerfileContext>
+    <UserSecretsId>1451f853-5438-4761-bfa4-c14b0bdbb854</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\greetstream.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Api.CommonProtos" Version="2.15.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.57.0" />
+    <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.62.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+    <PackageReference Include="MongoDB.Driver" Version="2.25.0" />
+  </ItemGroup>
+
+</Project>
